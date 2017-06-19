@@ -44,7 +44,7 @@ module Media
 end
 
 module Hoodline
-  class Metadata
+  class Metadata < Media::Base
     attribute :automated
   end
 end
