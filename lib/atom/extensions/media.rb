@@ -5,7 +5,7 @@ require 'atom'
 #
 # Exaple:
 #     f.entries << Atom::Entry.new do |e|
-#       e.media_content = Media.new :url => article.media['image']
+#       e.media_content = Media::Content.new :url => article.media['image']
 #     end
 #
 
@@ -43,8 +43,14 @@ module Media
   end
 end
 
+module Hoodline
+  class Metadata
+    attribute :automated
+  end
+end
+
 Atom::Feed.add_extension_namespace :media, "http://search.yahoo.com/mrss/"
 Atom::Entry.element "media:content", class: Media::Content
 Atom::Entry.elements "media:location", class: Media::Location
 Atom::Entry.element "media:category", class: Media::Category
-
+Atom::Entry.element "hl:metadata", class: Hoodline::Metadata
