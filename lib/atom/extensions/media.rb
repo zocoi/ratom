@@ -50,6 +50,7 @@ module Hoodline
 end
 
 Atom::Feed.add_extension_namespace :media, "http://search.yahoo.com/mrss/"
+Atom::Feed.add_extension_namespace :hl, "http://hoodline.com/"
 Atom::Entry.element "media:content", class: Media::Content
 Atom::Entry.elements "media:location", class: Media::Location
 Atom::Entry.element "media:category", class: Media::Category
